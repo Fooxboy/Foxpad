@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foxpad", "Foxpad\Foxpad.csproj", "{4A8FA072-4095-473B-AAA8-B81A26C8876F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|ARM.Build.0 = Debug|ARM
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|ARM.Deploy.0 = Debug|ARM
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|ARM64.Build.0 = Debug|ARM64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|x64.ActiveCfg = Debug|x64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|x64.Build.0 = Debug|x64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|x64.Deploy.0 = Debug|x64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|x86.ActiveCfg = Debug|x86
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|x86.Build.0 = Debug|x86
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Debug|x86.Deploy.0 = Debug|x86
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|ARM.ActiveCfg = Release|ARM
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|ARM.Build.0 = Release|ARM
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|ARM.Deploy.0 = Release|ARM
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|ARM64.ActiveCfg = Release|ARM64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|ARM64.Build.0 = Release|ARM64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|ARM64.Deploy.0 = Release|ARM64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|x64.ActiveCfg = Release|x64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|x64.Build.0 = Release|x64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|x64.Deploy.0 = Release|x64
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|x86.ActiveCfg = Release|x86
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|x86.Build.0 = Release|x86
+		{4A8FA072-4095-473B-AAA8-B81A26C8876F}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB9E7EBB-B419-41F4-9B26-B1D9ABF654C1}
+	EndGlobalSection
+EndGlobal
