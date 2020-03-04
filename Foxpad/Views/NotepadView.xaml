@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -19,10 +19,42 @@
         <TextBlock Text="Name Document.txt" Grid.Row="0" VerticalAlignment="Center" Margin="20 0 0 0"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Button  Content="Save"/>
-        </StackPanel>
+            
+            <Button ToolTipService.ToolTip="Открыть файл" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="OpenFile"/>
+                        <TextBlock Margin="3 0 0 0" Text="Открыть"/>
+                    </StackPanel>
+                </Button.Content>
 
-        <RichEditBox Style="{StaticResource RichEditBoxStyle}" Grid.Row="2"/>
-        <TextBlock Text="123 символов" Grid.Row="3"/>
+            </Button>
+            
+            <Button ToolTipService.ToolTip="Быстрое сохранение" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE105;" />
+                        <TextBlock Margin="3 0 0 0" Text="Сохранить"/>
+                    </StackPanel>
+                </Button.Content>
+                
+            </Button>
+            <Button ToolTipService.ToolTip="Сохранить как" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE792;" />
+                        <TextBlock Margin="3 0 0 0" Text="Сохранить как"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <Button ToolTipService.ToolTip="Настройки" Height="40" Width="40" Margin="0 0 5 0" Style="{StaticResource BarButtonStyle}" Grid.Row="1" HorizontalAlignment="Right">
+            <Button.Content>
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE713;" />
+            </Button.Content>
+        </Button>
+
+        <RichEditBox Margin="3 5 0 0" Style="{StaticResource RichEditBoxStyle}" Grid.Row="2"/>
+        <TextBlock Foreground="Gray" Height="20" Width="300" Margin="5 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="123 символов" Grid.Row="3"/>
     </Grid>
 </Page>
