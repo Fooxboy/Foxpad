@@ -10,15 +10,30 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="300"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <TextBlock Text="Добро пожаловать в Foxpad, {name}" Margin="50 0 0 0" VerticalAlignment="Center" FontSize="40" FontWeight="ExtraBold"/>
             <StackPanel Margin="0 0 20 0" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Создать"/>
-                <Button Content="Открыть" Margin="10 0 0 0 "/>
+                <Button  Foreground="White" Style="{ThemeResource AccentButton}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon FontSize="20" FontFamily="Segoe MDL2 Assets" Glyph="&#xE948;" />
+                            <TextBlock FontSize="20" Margin="5 0 0 0" Text="Создать"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button  Style="{StaticResource DefaultButton}" FontSize="20" Margin="15 0 0 0 ">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8E5;" />
+                            <TextBlock FontSize="20" Margin="5 0 0 0" Text="Открыть"/>
+                        </StackPanel>
+                       
+                    </Button.Content>
+                </Button>
             </StackPanel>
         </Grid>
 

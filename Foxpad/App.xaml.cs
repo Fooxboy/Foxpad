@@ -6,8 +6,11 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -64,10 +67,18 @@ namespace Foxpad
             {
                 if (rootFrame.Content == null)
                 {
+
+                    CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+
+                    var appView = ApplicationView.GetForCurrentView();
+                    appView.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+                    appView.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+
                     // Если стек навигации не восстанавливается для перехода к первой странице,
                     // настройка новой страницы путем передачи необходимой информации в качестве параметра
                     // навигации
-                    rootFrame.Navigate(typeof(WelcomeView), e.Arguments);
+                    rootFrame.Navigate(typeof(NotepadView), e.Arguments);
                 }
                 // Обеспечение активности текущего окна
                 Window.Current.Activate();

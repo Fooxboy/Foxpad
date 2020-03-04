@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="Foxpad.Views.NotepadView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Foxpad.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Name Document.txt" Grid.Row="0" VerticalAlignment="Center" Margin="20 0 0 0"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button  Content="Save"/>
+        </StackPanel>
+
+        <RichEditBox Style="{StaticResource RichEditBoxStyle}" Grid.Row="2"/>
+        <TextBlock Text="123 символов" Grid.Row="3"/>
+    </Grid>
+</Page>
