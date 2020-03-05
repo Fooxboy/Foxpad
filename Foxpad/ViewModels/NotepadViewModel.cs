@@ -37,6 +37,8 @@ namespace Foxpad.ViewModels
             var text = await _fileService.ReadAllText(file);
             Text = this.Text = text;
 
+            _saveFile = file;
+
             NameDocument = file.DisplayName + "." + file.FileType;
             Changed("NameDocument");
 
