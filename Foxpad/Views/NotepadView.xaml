@@ -16,7 +16,10 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Name Document.txt" Grid.Row="0" VerticalAlignment="Center" Margin="20 0 0 0"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="{x:Bind ViewModel.NameDocument, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" Margin="20 0 0 0"/>
+            <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="- Foxpad"/>
+        </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             
@@ -54,7 +57,13 @@
             </Button.Content>
         </Button>
 
-        <RichEditBox  Margin="3 5 0 0" Style="{StaticResource RichEditBoxStyle}" Grid.Row="2"/>
-        <TextBlock Foreground="Gray" Height="20" Width="300" Margin="5 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="123 символов" Grid.Row="3"/>
+        <TextBox TextChanged="{x:Bind ViewModel.TextChanged}" TextWrapping="Wrap" Text="{x:Bind ViewModel.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Style="{StaticResource TextBoxStyle}"  Margin="3 5 0 0" Grid.Row="2"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <TextBlock Foreground="Gray" Height="20" Margin="5 0 0 0"  VerticalAlignment="Center" Text="{x:Bind ViewModel.CountCharacters, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock Foreground="Gray" Height="20" Margin="5 0 0 0"  VerticalAlignment="Center" Text="символов" Grid.Row="3"/>
+
+        </StackPanel>
+        
     </Grid>
 </Page>

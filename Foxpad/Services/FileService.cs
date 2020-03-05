@@ -16,7 +16,6 @@ namespace Foxpad.Services
             picker.ViewMode = PickerViewMode.Thumbnail;
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             picker.FileTypeFilter.Add(".txt");
-            picker.FileTypeFilter.Add(".rtf");
 
             return await picker.PickSingleFileAsync();
         }
@@ -33,7 +32,8 @@ namespace Foxpad.Services
         {
             var savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("FoxpadDoc", new List<string>() { ".txt", ".rtf" });
+            savePicker.FileTypeChoices.Add("Текстовый документ", new List<string>() { ".txt"});
+           // savePicker.FileTypeChoices.Add("Любой документ", new List<string> { "." });
             savePicker.SuggestedFileName = "Foxpad document";
             var file = await savePicker.PickSaveFileAsync();
             return file;
@@ -48,8 +48,8 @@ namespace Foxpad.Services
                 await FileIO.WriteTextAsync(file, text);
                 return true;
 
-            }catch(Exception e)
-            {
+            }catch
+            { 
                 return false;
             }
         }

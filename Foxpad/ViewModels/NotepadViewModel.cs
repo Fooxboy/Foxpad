@@ -1,24 +1,22 @@
 ﻿using Foxpad.Helpers;
 using Foxpad.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
-using Windows.Storage.Pickers;
+using Windows.UI.Xaml.Controls;
 
 namespace Foxpad.ViewModels
 {
     public class NotepadViewModel:BaseViewModel
     {
-        NotepadViewModel()
+        public NotepadViewModel()
         {
             OpenFileCommand = new RelayCommand(OpenFile);
             SaveFileCommand = new RelayCommand(SaveFile);
             SaveAsFileCommand = new RelayCommand(SaveAsFile);
 
             _fileService = new FileService();
+
+            NameDocument = "Foxpad document.txt";
         }
 
         public string Text { get; set; }
@@ -39,6 +37,9 @@ namespace Foxpad.ViewModels
             var text = await _fileService.ReadAllText(file);
             Text = this.Text = text;
 
+            NameDocument = file.DisplayName + "." + file.FileType;
+            Changed("NameDocument");
+
             Changed("Text");
         }
 
@@ -47,10 +48,14 @@ namespace Foxpad.ViewModels
             if(_saveFile is null)
             {
                 var docFolder = KnownFolders.DocumentsLibrary;
-                var file = await docFolder.CreateFileAsync($"Foxpad document {DateTime.Now.Minute}:{DateTime.Now.Second}");
+                var file = await docFolder.CreateFileAsync($"Foxpad document {DateTime.Now.Minute}-{DateTime.Now.Second}.txt");
                 _saveFile = file;
             }
             await _fileService.WriteTextInFile(Text, _saveFile);
+
+            NameDocument = _saveFile.DisplayName + "." + _saveFile.FileType;
+
+            Changed("NameDocument");
         }
 
         private async void SaveAsFile()
@@ -60,6 +65,16 @@ namespace Foxpad.ViewModels
 
             _saveFile = file;
             var f = _fileService.WriteTextInFile(Text, file);
+
+            NameDocument = file.DisplayName + "." + file.FileType;
+
+            Changed("NameDocument");
+        }
+
+        public void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CountCharacters = Text.Length;
+            Changed("CountCharacters");
         }
 
     }

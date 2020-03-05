@@ -31,5 +31,7 @@ namespace Foxpad.Views
             this.InitializeComponent();
             ViewModel = new NotepadViewModel();
         }
+
+        
     }
 }
