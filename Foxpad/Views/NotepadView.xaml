@@ -20,7 +20,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             
-            <Button ToolTipService.ToolTip="Открыть файл" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
+            <Button ToolTipService.ToolTip="Открыть файл" Command="{x:Bind ViewModel.OpenFileCommand}" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="OpenFile"/>
@@ -30,7 +30,7 @@
 
             </Button>
             
-            <Button ToolTipService.ToolTip="Быстрое сохранение" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
+            <Button ToolTipService.ToolTip="Быстрое сохранение" Command="{x:Bind ViewModel.SaveFileCommand}" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE105;" />
@@ -39,7 +39,7 @@
                 </Button.Content>
                 
             </Button>
-            <Button ToolTipService.ToolTip="Сохранить как" Margin="5 0 0 0" Height="40"  Style="{StaticResource BarButtonStyle}">
+            <Button ToolTipService.ToolTip="Сохранить как" Margin="5 0 0 0" Height="40" Command="{x:Bind ViewModel.SaveAsFileCommand}" Style="{StaticResource BarButtonStyle}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE792;" />
@@ -54,7 +54,7 @@
             </Button.Content>
         </Button>
 
-        <RichEditBox Margin="3 5 0 0" Style="{StaticResource RichEditBoxStyle}" Grid.Row="2"/>
+        <RichEditBox  Margin="3 5 0 0" Style="{StaticResource RichEditBoxStyle}" Grid.Row="2"/>
         <TextBlock Foreground="Gray" Height="20" Width="300" Margin="5 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="123 символов" Grid.Row="3"/>
     </Grid>
 </Page>
