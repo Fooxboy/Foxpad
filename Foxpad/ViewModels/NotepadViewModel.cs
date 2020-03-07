@@ -1,6 +1,7 @@
 ﻿using Foxpad.Helpers;
 using Foxpad.Services;
 using System;
+using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 
@@ -34,15 +35,7 @@ namespace Foxpad.ViewModels
             var file = await _fileService.OpenFilePicker();
             if (file is null) return;
 
-            var text = await _fileService.ReadAllText(file);
-            Text = this.Text = text;
-
-            _saveFile = file;
-
-            NameDocument = file.DisplayName + "." + file.FileType;
-            Changed("NameDocument");
-
-            Changed("Text");
+            await SetStorageFile(file);
         }
 
         private async void SaveFile()
@@ -53,11 +46,8 @@ namespace Foxpad.ViewModels
                 var file = await docFolder.CreateFileAsync($"Foxpad document {DateTime.Now.Minute}-{DateTime.Now.Second}.txt");
                 _saveFile = file;
             }
-            await _fileService.WriteTextInFile(Text, _saveFile);
 
-            NameDocument = _saveFile.DisplayName + "." + _saveFile.FileType;
-
-            Changed("NameDocument");
+            await SetStorageFile(_saveFile);
         }
 
         private async void SaveAsFile()
@@ -65,18 +55,26 @@ namespace Foxpad.ViewModels
             var file = await _fileService.OpenSaveFilePicker();
             if (file is null) return;
 
-            _saveFile = file;
-            var f = _fileService.WriteTextInFile(Text, file);
-
-            NameDocument = file.DisplayName + "." + file.FileType;
-
-            Changed("NameDocument");
+            await SetStorageFile(file);
         }
 
         public void TextChanged(object sender, TextChangedEventArgs e)
         {
             CountCharacters = Text.Length;
             Changed("CountCharacters");
+        }
+
+        public async Task SetStorageFile(StorageFile file)
+        {
+            var text = await _fileService.ReadAllText(file);
+            Text = this.Text = text;
+
+            _saveFile = file;
+
+            NameDocument = file.DisplayName + "." + file.FileType;
+
+            Changed("NameDocument");
+            Changed("Text");
         }
 
     }

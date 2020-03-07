@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foxpad.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,14 @@ namespace Foxpad.Views
     /// </summary>
     public sealed partial class WelcomeView : Page
     {
+
+        public WelcomeViewModel ViewModel { get; }
+
         public WelcomeView()
         {
             this.InitializeComponent();
+
+            ViewModel = new WelcomeViewModel();
         }
     }
 }

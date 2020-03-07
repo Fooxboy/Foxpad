@@ -127,6 +127,7 @@
     <Compile Include="Services\FileService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\NotepadViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeViewModel.cs" />
     <Compile Include="Views\NotepadView.xaml.cs">
       <DependentUpon>NotepadView.xaml</DependentUpon>
     </Compile>
